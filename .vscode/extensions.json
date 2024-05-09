@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "ms-python.black-formatter",
+        "codezombiech.gitignore",
+        "eamodio.gitlens",
+        "yzhang.markdown-all-in-one"
+    ]
+}
