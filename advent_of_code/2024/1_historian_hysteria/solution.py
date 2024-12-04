@@ -24,18 +24,14 @@ def main():
     with open(filepath, "r") as file:
         lines = file.readlines()
 
-        list1, list2 = compose(
-            map(list),
-            map(map(int)),
-            unzip,
-            map(str.split),
-        )(lines)
+        to_int_list = compose(list, map(int))
+        list1, list2 = compose(map(to_int_list), unzip, map(str.split))(lines)
 
         d = distance(list1, list2)
         print(f"Part One: {d}")
 
         s = similarity(list1, list2)
-        print(f"Part One: {s}")
+        print(f"Part Two: {s}")
 
 
 if __name__ == "__main__":
