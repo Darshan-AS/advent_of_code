@@ -7,8 +7,8 @@ from typing import Iterable
 from toolz.curried import map
 from more_itertools import unzip
 
-LocationID = Integral
-List = Iterable[LocationID]
+type LocationID = Integral
+type List = Iterable[LocationID]
 
 
 def distance(left_list: List, right_list: List) -> int:

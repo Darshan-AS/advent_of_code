@@ -12,13 +12,11 @@ Fn = Callable
 findall = curry(re.findall)
 starmap = curry(starmap)
 
-CorruptInstructions = str
-
-Conditional = Literal["do()"] | Literal["don't()"]
-Expression = str # strings of type "mul(x,y)"
-Instruction = Conditional | Expression
-
-BinaryOperands = tuple[Integral, Integral]
+type CorruptInstructions = str
+type Conditional = Literal["do()"] | Literal["don't()"]
+type Expression = str # strings of type "mul(x,y)"
+type Instruction = Conditional | Expression
+type BinaryOperands[T] = tuple[T, T]
 
 P = r"mul\(\d{1,3},\d{1,3}\)|do\(\)|don\'t\(\)"
 
@@ -34,7 +32,7 @@ def recover(xs: CorruptInstructions, skip_conditionals: bool = False) -> Iterabl
     return compose(execute_conditionals(skip=skip_conditionals), findall(P))(xs)
 
 to_operands \
-    : Fn[[Iterable[Expression]], BinaryOperands] \
+    : Fn[[Iterable[Expression]], BinaryOperands[int]] \
     = compose(tuple, take(2), map(int), findall(r"\d+"))
 
 compute \
