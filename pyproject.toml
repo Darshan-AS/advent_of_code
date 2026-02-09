@@ -1,23 +1,32 @@
-[tool.poetry]
+[project]
 name = "advent-of-code"
 version = "0.1.0"
 description = ""
-authors = ["Darshan A S <itisdarshan@gmail.com>"]
 readme = "README.md"
+authors = [
+    {name = "Darshan A S", email = "itisdarshan@gmail.com"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "toolz>=1.0.0",
+    "pyfunctional>=1.5.0",
+    "sortedcontainers>=2.4.0",
+    "more-itertools>=10.5.0"
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-toolz = "^1.0.0"
-pyfunctional = "^1.5.0"
-sortedcontainers = "^2.4.0"
-more-itertools = "^10.5.0"
-
-
-[tool.poetry.group.dev.dependencies]
-black = "^24.10.0"
-pylint = "^3.3.1"
-bandit = "^1.8.0"
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "pylint>=3.3.1",
+    "bandit>=1.8.0"
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+default = true
+
