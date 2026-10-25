@@ -18,6 +18,7 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
+				"charliermarsh.ruff",
 				"tamasfe.even-better-toml"
 			]
 		}
